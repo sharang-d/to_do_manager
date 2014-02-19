@@ -15,6 +15,7 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
+    @list.color = params[:color][:color]
     if @list.save
       redirect_to @list
     else
@@ -24,6 +25,6 @@ class ListsController < ApplicationController
 
   private
     def list_params
-      params.require(:list).permit(:title, :color, :status)
+      params.require(:list).permit(:title, :status)
     end
 end
