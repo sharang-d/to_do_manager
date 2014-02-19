@@ -1,1 +1,1 @@
-$("<li><%= @task.content %></li>").appendTo("#tasks");
+$("#tasks").append("<%= escape_javascript(render partial: 'shared/task',  object: @task, as: 'task') %>");
