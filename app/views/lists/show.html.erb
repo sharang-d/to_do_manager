@@ -7,7 +7,7 @@
 
 <% end %>
 <ul id="tasks">
-    <%= render partial: 'shared/task', collection: @tasks %>
+  <%= render partial: 'shared/task', collection: @tasks %>
 </ul>
 
 <%= form_for @task, remote: true do |f| %>
