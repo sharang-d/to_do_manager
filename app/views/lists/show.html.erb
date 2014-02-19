@@ -2,11 +2,24 @@
 <%= @list.color %>
 <%= @list.status %>
 
+
+<% unless @tasks.empty? %>
+
+<% end %>
 <ul id="tasks">
   <% @tasks.each do |task| %>
-  <li>
-    <%= task.content %>
-    <%= task.status %>
+  <li id="<%= task.id %>">
+    <div class="content">
+      <%= task.content %>
+    </div>
+    <div class="status">
+      <%= task.status %>
+    </div>
+    <div class="buttons">
+      <%= link_to "delete", task, method: :delete, remote: true,
+                                     data: { confirm: "You sure?" } %>
+      <%= link_to "edit", task, method: :get %>
+    </div>
   </li>
   <% end %>
 </ul>
