@@ -1,0 +1,8 @@
+<%= link_to "ADD", controller: "lists", action: "new" %>
+<ul class="notes">
+<% @lists.each do |list| %>
+<li>
+<%= link_to list.title, list %>
+</li>
+<% end %>
+</ul>

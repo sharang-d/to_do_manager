@@ -1,0 +1,19 @@
+<%= @list.title %>
+<%= @list.color %>
+<%= @list.status %>
+
+<ul id="tasks">
+  <% @tasks.each do |task| %>
+  <li>
+    <%= task.content %>
+    <%= task.status %>
+  </li>
+  <% end %>
+</ul>
+
+<%= form_for @task, remote: true do |f| %>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+  <%= f.hidden_field :list_id, value: params[:id] %>
+  <%= f.submit "Add" %>
+<% end %>
