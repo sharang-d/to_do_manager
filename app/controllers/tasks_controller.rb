@@ -14,10 +14,8 @@ class TasksController < ApplicationController
 
   def destroy
     @task = Task.find(params[:id])
-    @id = params[:id]
-    @task.destroy
     respond_to do |format|
-      if @task.save
+      if @task.destroy
         format.html { redirect_to List.find(@task.list_id) }
         format.js   {}
       else
